@@ -35,6 +35,7 @@ func _ready() -> void:
 		
 		var sprite_section = breakage.get_node("Sprite2D")
 		sprite_section.texture = texture
+		sprite_section.scale = scale
 		sprite_section.region_enabled = true
 		sprite_section.region_rect = rect[0]
 		
@@ -53,5 +54,7 @@ func explode():
 		node2d.show()
 	
 	# create impulse at position
+	# since we already know the affected rigid bodies, we just need to
+	# create different impulses so that it looks like  
 	
 	

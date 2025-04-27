@@ -64,6 +64,7 @@ script = ExtResource("1_y50si")
 metadata/_edit_group_ = true
 
 [node name="BreakableSprite" type="Node2D" parent="."]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("13_djc17")
 texture = ExtResource("2_yjft3")
 breakage_scene = ExtResource("4_s5w7y")

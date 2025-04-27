@@ -3,6 +3,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3cqmq"]
 
 [node name="BreakagePart" type="RigidBody2D"]
+gravity_scale = 0.0
+sleeping = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
