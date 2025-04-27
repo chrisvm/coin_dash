@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://5gut2n5ves8m"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_hnf1j"]
+[ext_resource type="Script" uid="uid://bntkrt5t5vi6a" path="res://hud.gd" id="1_hnf1j"]
 [ext_resource type="FontFile" uid="uid://dvyusdoeo5unl" path="res://assets/Kenney Bold.ttf" id="1_mn5xl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wegfy"]

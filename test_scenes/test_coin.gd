@@ -7,7 +7,8 @@ func _ready() -> void:
 	$Coin.position = $CoinSpawnpoint.position
 
 func _on_explode_button_pressed() -> void:
-	$Coin.pickup()
+	if has_node("Coin"):
+		$Coin.pickup()
 
 func _on_reset_button_pressed() -> void:
 	var existing_coin = find_child("Coin")
