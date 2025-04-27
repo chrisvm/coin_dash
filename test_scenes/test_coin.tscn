@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://chwgwpd4kw4h7"]
+
+[ext_resource type="PackedScene" uid="uid://c3x6oq03wmhgk" path="res://coin.tscn" id="1_4mfjh"]
+[ext_resource type="Script" path="res://test_scenes/test_coin.gd" id="1_t11qb"]
+
+[node name="TestCoin" type="Node"]
+script = ExtResource("1_t11qb")
+coin_scene = ExtResource("1_4mfjh")
+
+[node name="Coin" parent="." instance=ExtResource("1_4mfjh")]
+position = Vector2(241, 189)
+
+[node name="ExplodeButton" type="Button" parent="."]
+offset_left = 211.0
+offset_top = 438.0
+offset_right = 219.0
+offset_bottom = 446.0
+text = "Explode"
+
+[node name="ResetButton" type="Button" parent="."]
+offset_left = 130.0
+offset_top = 437.0
+offset_right = 200.0
+offset_bottom = 468.0
+text = "Reset"
+
+[node name="CoinSpawnpoint" type="Node2D" parent="."]
+position = Vector2(213, 248)
+
+[connection signal="pressed" from="ExplodeButton" to="." method="_on_explode_button_pressed"]
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
