@@ -1,6 +1,6 @@
 extends Node2D
 
-var child_sprites = []
+var child_sprites: Array[RigidBody2D] = []
 
 @export var centered: bool
 @export var texture: Texture2D
@@ -50,11 +50,11 @@ func reset():
 		node2d.hide()
 		
 func explode():
-	for node2d in child_sprites:
-		node2d.show()
-	
-	# create impulse at position
-	# since we already know the affected rigid bodies, we just need to
-	# create different impulses so that it looks like  
-	
+	for child in child_sprites:
+		child.show()
+		
+		# create impulse at position
+		# since we already know the affected rigid bodies, we just need to
+		# todo: calculate impulse direction based on the quadrant of the sprite chunk
+		child.apply_impulse()
 	
