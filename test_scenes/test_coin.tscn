@@ -9,6 +9,7 @@ coin_scene = ExtResource("1_4mfjh")
 
 [node name="Coin" parent="." instance=ExtResource("1_4mfjh")]
 position = Vector2(241, 189)
+lifetime_after_pickup = 1.0
 
 [node name="ExplodeButton" type="Button" parent="."]
 offset_left = 211.0

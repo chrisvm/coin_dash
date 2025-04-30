@@ -3,6 +3,7 @@ extends Node2D
 var child_sprites: Array[RigidBody2D] = []
 
 @export var centered: bool
+@export var impulse_force: int
 @export var texture: Texture2D
 @export var breakage_scene: PackedScene
 
@@ -55,6 +56,7 @@ func explode():
 		
 		# create impulse at position
 		# since we already know the affected rigid bodies, we just need to
-		# todo: calculate impulse direction based on the quadrant of the sprite chunk
-		child.apply_impulse()
+		var impulse_dir = child.position.normalized() * impulse_force
+		child.apply_impulse(impulse_dir, child.position)
+		child.apply_torque_impulse(randf_range(100.0, 1000.0))
 	
