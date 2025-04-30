@@ -5,7 +5,7 @@ extends Area2D
 func _ready() -> void:
 	$BreakableSprite.reset()
 	$BreakableSprite.scale = $AnimatedSprite2D.scale
-	$LifetimeTimer.wait_time = lifetime_after_pickup	
+	$BreakableSprite.lifetime = lifetime_after_pickup
 
 func pickup():
 	remove_from_group("coins")
@@ -16,9 +16,6 @@ func pickup():
 	$AnimatedSprite2D.hide()
 		
 	# first explode the coin sprite
-	$BreakableSprite.explode()
-	
-	$LifetimeTimer.start()
-	await $LifetimeTimer.timeout
+	await $BreakableSprite.explode()
 	
 	queue_free()

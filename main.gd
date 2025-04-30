@@ -33,6 +33,7 @@ func new_game():
 func spawn_coins():
 	for i in level + 4:
 		var c = coin_scene.instantiate()
+		c.lifetime_after_pickup = 1.5
 		add_child(c)
 		c.position = Vector2(
 			randi_range(0, screensize.x),

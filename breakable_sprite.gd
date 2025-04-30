@@ -6,6 +6,7 @@ var child_sprites: Array[RigidBody2D] = []
 @export var impulse_force: int
 @export var texture: Texture2D
 @export var breakage_scene: PackedScene
+@export var lifetime: float
 
 func _ready() -> void:
 	# create subdivisions
@@ -51,6 +52,8 @@ func reset():
 		node2d.hide()
 		
 func explode():
+	var waiters = []
+	
 	for child in child_sprites:
 		child.show()
 		
@@ -58,5 +61,13 @@ func explode():
 		# since we already know the affected rigid bodies, we just need to
 		var impulse_dir = child.position.normalized() * impulse_force
 		child.apply_impulse(impulse_dir, child.position)
-		child.apply_torque_impulse(randf_range(100.0, 1000.0))
+		child.apply_torque_impulse(randf_range(100.0, 1200.0))
+		
+		var tw = create_tween()
+		tw.set_parallel()
+		tw.tween_property(child, "modulate:a", 0.0, lifetime)
+		tw.tween_property(child, "modulate", Color(1, 0, 0, 1), lifetime / 2)
+		waiters.append(tw.finished)
 	
+	for awaitable in waiters:
+		await awaitable
