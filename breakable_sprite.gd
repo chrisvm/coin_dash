@@ -7,6 +7,7 @@ var child_sprites: Array[RigidBody2D] = []
 @export var texture: Texture2D
 @export var breakage_scene: PackedScene
 @export var lifetime: float
+@export var trans_color: Color
 
 func _ready() -> void:
 	# create subdivisions
@@ -64,9 +65,7 @@ func explode():
 		child.apply_torque_impulse(randf_range(100.0, 1200.0))
 		
 		var tw = create_tween()
-		tw.set_parallel()
-		tw.tween_property(child, "modulate:a", 0.0, lifetime)
-		tw.tween_property(child, "modulate", Color(1, 0, 0, 1), lifetime / 2)
+		tw.tween_property(child, "modulate", trans_color, lifetime / 2)
 		waiters.append(tw.finished)
 	
 	for awaitable in waiters:

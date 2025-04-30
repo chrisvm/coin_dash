@@ -61,14 +61,16 @@ animations = [{
 
 [node name="Coin" type="Area2D" groups=["coins"]]
 script = ExtResource("1_y50si")
+lifetime_after_pickup = 1.5
 metadata/_edit_group_ = true
 
 [node name="BreakableSprite" type="Node2D" parent="."]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("13_djc17")
-impulse_force = 120
+impulse_force = 191
 texture = ExtResource("2_yjft3")
 breakage_scene = ExtResource("4_s5w7y")
+trans_color = Color(25.41, 64.481, 0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2m1c1")
